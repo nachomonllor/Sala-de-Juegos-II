@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-8">
+    <table class="table mt-4 animated fadeIn faster table-striped table-dark table-responsive">
+      <thead class="thead-inverse">
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>apellido</th>
+          <th>Email</th>
+          <th>Imagen</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index;">
+          <td scope="row">{{ user.id }}</td>
+          <td scope="row">{{ user.firstname }}</td>
+          <td scope="row">{{ user.lastname }}</td>
+          <td scope="row">{{ user.email }}</td>
+          <td scope="row">{{ user.img}}</td>
+          <td>
+            <button type="button" class="btn btn-primary btn-small" (click)="onEdit(user.id)">Editar</button>
+            <button type="button" class="btn btn-success btn-small" (click)="onDelete(user.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+

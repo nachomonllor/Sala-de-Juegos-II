@@ -1,3 +1,4 @@
+function app_init() {
 $(function () {
     "use strict";
     $("#main-wrapper").AdminSettings({
@@ -12,3 +13,4 @@ $(function () {
         BoxedLayout: false, // it can be true / false ( true means Boxed and false means Fluid ) 
     });
 });
+}

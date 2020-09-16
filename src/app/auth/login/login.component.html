@@ -12,33 +12,36 @@
   <div class="auth-box p-4 bg-white rounded">
     <div id="loginform">
       <div class="logo">
-        <h3 class="box-title mb-3">Sign In</h3>
+        <h3 class="box-title mb-3">Ingresar</h3>
       </div>
       <!-- Form -->
       <div class="row">
         <div class="col-12">
           <form
+            [formGroup]="form"
             class="form-horizontal mt-3 form-material"
             id="loginform"
-            action="index.html"
+            (ngSubmit)="onSubmit()"
           >
             <div class="form-group mb-3">
               <div class="">
                 <input
+                  formControlName="email"
                   class="form-control"
                   type="text"
                   required=""
-                  placeholder="Username"
+                  placeholder="Email"
                 />
               </div>
             </div>
             <div class="form-group mb-4">
               <div class="">
                 <input
+                  formControlName="password"
                   class="form-control"
                   type="password"
                   required=""
-                  placeholder="Password"
+                  placeholder="Contraseña"
                 />
               </div>
             </div>
@@ -59,7 +62,7 @@
                     class="text-muted"
                   >
                     <i class="fa fa-lock mr-1"></i>
-                    Forgot pwd?
+                    Olvide mi contraseña
                   </a>
                 </div>
               </div>
@@ -115,7 +118,7 @@
     </div>
     <div id="recoverform">
       <div class="logo">
-        <h3 class="font-weight-medium mb-3">Recover Password</h3>
+        <h3 class="font-weight-medium mb-3">Recuperar Contraseña</h3>
         <span class="text-muted">
           Enter your Email and instructions will be sent to you!
         </span>
@@ -130,7 +133,7 @@
                 class="form-control"
                 type="email"
                 required=""
-                placeholder="Username"
+                placeholder="Email"
               />
             </div>
           </div>
@@ -142,8 +145,18 @@
                 type="submit"
                 name="action"
               >
-                Reset
+                Resetear
               </button>
+            </div>
+            <div class="ml-auto mt-2 mr-4">
+              <a
+                href="javascript:void(0)"
+                id="to-login"
+                class="text-muted"
+              >
+                <i class="fa fa-user mt-1"></i>
+                Ir a Login
+              </a>
             </div>
           </div>
         </form>
@@ -151,6 +164,7 @@
     </div>
   </div>
 </div>
+
 <!-- ============================================================== -->
 <!-- Login box.scss -->
 <!-- ============================================================== -->
