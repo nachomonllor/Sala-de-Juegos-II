@@ -83,7 +83,7 @@ export class AnagramaService {
       cantidadPuntos: this.cantidadPuntos,
       hora: new Date(),
       jugador: 'jcvaldes',
-    }
+    };
     return this.firestore.collection('anagrama').add({...partida});
   }
 }
