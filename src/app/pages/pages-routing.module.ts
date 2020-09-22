@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AnagramaComponent } from './anagrama/anagrama.component';
 import { AuthGuard } from '../services/auth.guard';
+import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-aritmetica.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'anagrama',
     component: AnagramaComponent
+  },
+  {
+    path: 'agilidad-aritmetica',
+    component: AgilidadAritmeticaComponent
   },
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' }
   // { path: 'users' component: UserListComponent}

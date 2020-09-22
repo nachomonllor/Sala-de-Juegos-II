@@ -23,6 +23,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": [
+              "rxjs-compat",
+              "angularfire2",
+              "@firebase/auth",
+              "@firebase/firestore",
+              "@firebase/app",
+              "firebase/app",
+              "@angular/common/locales/es",
+              "@firebase/component",
+              "lodash"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

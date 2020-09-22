@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { MaterialModule } from '../shared/material.module';
+import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-aritmetica.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MaterialModule } from '../shared/material.module';
     NavbarComponent,
     SidebarComponent,
     DashboardComponent,
-    AnagramaComponent
+    AnagramaComponent,
+    AgilidadAritmeticaComponent
   ],
   imports: [
     CommonModule,
