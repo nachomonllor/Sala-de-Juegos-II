@@ -84,6 +84,6 @@ export class AnagramaService {
       hora: new Date(),
       jugador: 'jcvaldes',
     };
-    return this.firestore.collection('anagrama').add({...partida});
+    return this.firestore.collection('lista').add({...partida});
   }
 }

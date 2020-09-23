@@ -16,13 +16,14 @@ export class AgilidadAritmeticaService {
   cantidadPuntos: number;
   maximo_puntaje: number = 0;
   nivel: number;
+  intentos = 0;
 
   constructor(
     private firestore: AngularFirestore
   ) {
     this.cantidadPuntos = 0;
+    this.intentos = 0;
   }
-
 
   getCalulo() {
     this.numero1 = Math.floor(Math.random() * this.limite);
@@ -41,9 +42,10 @@ export class AgilidadAritmeticaService {
     return `${this.numero1} ${this.operadorSeleccionado} ${this.numero2}`;
   }
   verifyResult(result) {
-    if (result === this.result) {
+    if (result == this.result) {
       return 1;
     } else {
+      this.intentos++;
       return 0;
     }
   }
@@ -54,12 +56,9 @@ export class AgilidadAritmeticaService {
       points: this.cantidadPuntos,
       date: new Date(),
       namePlayer: 'nmonllor'
-      // jugador: this._userService.user.username
     };
-    const lista = JSON.parse(localStorage.getItem('lista')) || [];
-    lista.push(game);
-    localStorage.setItem('lista', JSON.stringify(lista));
     this.cantidadPuntos = 0;
+    return this.firestore.collection('lista').add({...game});
   }
 
   subirDeNivel() {

@@ -23,7 +23,7 @@
             <div class="d-flex">
               <i class="fa fa-circle font-10 mr-2 text-danger mt-2"></i>
               <div>
-                <!-- <h2 class="mb-0 text-danger">{{ agilidadAritmeticaService.intentos }}</h2> -->
+                <h2 class="mb-0 text-danger">{{ agilidadAritmeticaService.intentos }}</h2>
                 <h6 class="text-muted">Intentos</h6>
               </div>
             </div>
@@ -57,6 +57,7 @@
                       matInput
                       formControlName="resultado"
                       required
+                      (keyup.enter)="onSubmit()"
                     />
                     <mat-error>requerido</mat-error>
                   </mat-form-field>

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AgilidadAritmeticaService } from './agilidad-aritmetica.service';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   styles: [
   ]
 })
-export class AgilidadAritmeticaComponent implements OnInit {
+export class AgilidadAritmeticaComponent implements OnInit, OnDestroy {
   form: FormGroup;
   @Output()
   enviarJuego: EventEmitter<any> = new EventEmitter<any>();
@@ -28,6 +28,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.newGame(1, 10);
   }
   ngOnInit() {}
+  ngOnDestroy() {
+    this.stopTimer();
+  }
   createForm() {
     this.form = new FormGroup({
       calculo: new FormControl(null, Validators.required),
@@ -42,6 +45,22 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.agilidadAritmeticaService.cantidadPuntos += 20;
       this.agilidadAritmeticaService.cantidadPuntos = this.agilidadAritmeticaService.cantidadPuntos <= 0
         ? 0 : this.agilidadAritmeticaService.cantidadPuntos;
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Incorrecto, Vuelve a intentar',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
   newGame(nivel, limite) {
@@ -67,6 +86,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.reloj--;
     if (this.reloj <= 0) {
       this.stopTimer();
+      this.agilidadAritmeticaService.intentos++;
       Swal.fire({
         title: 'Game Over',
         text: '¿Quires seguir Jugando?',
@@ -75,11 +95,12 @@ export class AgilidadAritmeticaComponent implements OnInit {
         confirmButtonText: 'Sí',
         cancelButtonText: 'No',
       }).then((result) => {
+        debugger
         if (result.value) {
           this.newGame(1, 10);
         } else {
           this.agilidadAritmeticaService.gameOver();
-          this.router.navigate(['/Principal']);
+          this.router.navigate(['/dashboard']);
         }
       });
     }
@@ -106,6 +127,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       confirmButtonText: 'Sí',
       cancelButtonText: 'No',
     }).then((result) => {
+
       if (result.value) {
         this.ngOnInit();
       } else {
