@@ -134,6 +134,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "adminpro_starterkit_firebase"
+    }
+  },
+  "defaultProject": "adminpro_starterkit_firebase",
+  "cli": {
+    "analytics": "849d62ea-5643-4f27-b31c-f2a36ec3ad5f"
+  }
 }

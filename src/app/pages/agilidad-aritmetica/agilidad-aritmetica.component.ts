@@ -47,15 +47,15 @@ export class AgilidadAritmeticaComponent implements OnInit, OnDestroy {
         ? 0 : this.agilidadAritmeticaService.cantidadPuntos;
 
       Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Correcto',
         showConfirmButton: false,
         timer: 1500
       });
     } else {
       Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: 'error',
         title: 'Incorrecto, Vuelve a intentar',
         showConfirmButton: false,
