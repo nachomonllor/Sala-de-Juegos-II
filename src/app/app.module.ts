@@ -20,9 +20,14 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { PagesModule } from './pages/pages.module';
 import { MaterialModule } from './shared/material.module';
 
+
+//import { CommonModule } from '@angular/common';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+  
 
   ],
   imports: [
@@ -36,6 +41,7 @@ import { MaterialModule } from './shared/material.module';
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+   // CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
   ],

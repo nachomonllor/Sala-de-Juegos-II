@@ -1,3 +1,6 @@
+import { PiedrapapeltijeraComponent } from './piedrapapeltijera/piedrapapeltijera.component';
+import { PrimosComponent } from './primos/primos.component';
+import { TatetiComponent } from './tateti/tateti.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,6 +22,18 @@ const routes: Routes = [
   {
     path: 'agilidad-aritmetica',
     component: AgilidadAritmeticaComponent
+  },
+  {
+    path: 'tateti',
+    component: TatetiComponent
+  },
+  {
+    path: 'primos',
+    component: PrimosComponent
+  },
+  {
+    path: 'piedrapapeltijera',
+    component: PiedrapapeltijeraComponent
   },
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' }
   // { path: 'users' component: UserListComponent}

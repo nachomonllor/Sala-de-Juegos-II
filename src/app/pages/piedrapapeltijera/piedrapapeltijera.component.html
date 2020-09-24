@@ -1,0 +1,34 @@
+<div style="text-align: center;" class="texto_cabecera">
+    <h2 class="texto_cabecera">Piedra, papel o tijera</h2>
+    <br />
+    <h2 class="texto_cabecera">Escoge una de las imagenes</h2>
+    <br />
+</div>
+<div style="text-align: center;">
+    <button mat-button (click)="ppt.clickPapel()">
+      <img src="../../../assets/images/big/papel.jpg" name="papel" width="250" />
+    </button>
+
+    <button mat-button (click)="ppt.clickPiedra()">
+      <img
+        src="../../../assets/images/big/piedra.jpg"
+        name="piedra"
+        width="250"
+      />
+    </button>
+
+    <button mat-button (click)="ppt.clickTijera()">
+      <img
+        src="../../../assets/images/big/tijera.jpg"
+        name="tijera"
+        width="250"
+      />
+    </button>
+</div>
+<br />
+<div style="text-align: center;" class="texto">
+    Resultado parcial: {{ ppt.resultadoParcial }}
+    <br /> Puntos humano :{{ ppt.cantidadPuntos }}
+    <br /> Puntos compu: {{ ppt.puntajeCompu }} - La compu eligio: {{ ppt.mostrarSeleccionado }}
+    <br /> {{ ppt.resultadoFinal }}
+</div>

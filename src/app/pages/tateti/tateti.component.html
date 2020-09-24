@@ -1,0 +1,34 @@
+<div style="text-align: center;">
+    <button mat-raised-button (click)="tateti.presion(0, 0)" class="casilla">
+      {{ tateti.posiciones[0][0] }}
+    </button>
+    <button mat-raised-button (click)="tateti.presion(0, 1)" class="casilla">
+      {{ tateti.posiciones[0][1] }}
+    </button>
+    <button mat-raised-button (click)="tateti.presion(0, 2)" class="casilla">
+      {{ tateti.posiciones[0][2] }}
+    </button>
+    <br />
+    <button mat-raised-button (click)="tateti.presion(1, 0)" class="casilla">
+      {{ tateti.posiciones[1][0] }}
+    </button>
+    <button mat-raised-button (click)="tateti.presion(1, 1)" class="casilla">
+      {{ tateti.posiciones[1][1] }}
+    </button>
+    <button mat-raised-button (click)="tateti.presion(1, 2)" class="casilla">
+      {{ tateti.posiciones[1][2] }}
+    </button>
+    <br />
+    <button mat-raised-button (click)="tateti.presion(2, 0)" class="casilla">
+      {{ tateti.posiciones[2][0] }}
+    </button>
+    <button mat-raised-button (click)="tateti.presion(2, 1)" class="casilla">
+      {{ tateti.posiciones[2][1] }}
+    </button>
+    <button mat-raised-button (click)="tateti.presion(2, 2)" class="casilla">
+      {{ tateti.posiciones[2][2] }}
+    </button>
+</div>
+<div style="text-align: center;">
+    <button mat-button color="primary" (click)="tateti.initialize()">Reiniciar</button>
+</div>

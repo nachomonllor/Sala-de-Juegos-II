@@ -8,8 +8,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
-  styles: [
-  ]
+  styleUrls: ['./agilidad.component.scss']
 })
 export class AgilidadAritmeticaComponent implements OnInit, OnDestroy {
   form: FormGroup;

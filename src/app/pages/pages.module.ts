@@ -1,3 +1,6 @@
+import { TatetiComponent } from './tateti/tateti.component';
+import { PiedrapapeltijeraComponent } from './piedrapapeltijera/piedrapapeltijera.component';
+import { PrimosComponent } from './primos/primos.component';
 import { PagesComponent } from './pages.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,7 +21,10 @@ import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-arit
     SidebarComponent,
     DashboardComponent,
     AnagramaComponent,
-    AgilidadAritmeticaComponent
+    AgilidadAritmeticaComponent,
+    PrimosComponent,
+    PiedrapapeltijeraComponent,
+    TatetiComponent
   ],
   imports: [
     CommonModule,

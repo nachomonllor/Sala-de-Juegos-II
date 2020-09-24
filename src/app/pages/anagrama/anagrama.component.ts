@@ -7,8 +7,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-anagrama',
   templateUrl: './anagrama.component.html',
-  styles: [
-  ]
+  styleUrls: ['./anagrama.component.scss']
 })
 export class AnagramaComponent implements OnInit {
   form: FormGroup;
