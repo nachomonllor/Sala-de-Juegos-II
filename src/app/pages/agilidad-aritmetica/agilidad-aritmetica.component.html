@@ -1,98 +1,89 @@
 <div class="card">
-  <div class="card-body">
-    <div class="d-lg-flex">
-      <div>
-        <h3 class="card-title">
-          <span class="lstick d-inline-block align-middle"></span>
-          Agilidad Aritmetica
-        </h3>
-        <h6 class="card-subtitle">Pon a prueba tu velocidad de cálculo</h6>
-      </div>
-      <div class="ml-auto">
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <div class="d-flex">
-              <i class="fa fa-circle font-10 mr-2 text-success mt-2"></i>
-              <div>
-                <h2 class="mb-0 text-success">{{ agilidadAritmeticaService.cantidadPuntos }}</h2>
-                <h6 class="text-muted">Puntos</h6>
-              </div>
+    <div class="card-body">
+        <div class="d-lg-flex">
+            <div>
+                <h3 class="card-title">
+                    <span class="lstick d-inline-block align-middle"></span> Agilidad Aritmetica
+                </h3>
+                <h6 class="card-subtitle">Pon a prueba tu velocidad de cálculo</h6>
             </div>
-          </li>
-          <li class="list-inline-item">
-            <div class="d-flex">
-              <i class="fa fa-circle font-10 mr-2 text-danger mt-2"></i>
-              <div>
-                <h2 class="mb-0 text-danger">{{ agilidadAritmeticaService.intentos }}</h2>
-                <h6 class="text-muted">Intentos</h6>
-              </div>
+            <div class="ml-auto">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <div class="d-flex">
+                            <i class="fa fa-circle font-10 mr-2 text-success mt-2"></i>
+                            <div>
+                                <h2 class="mb-0 text-success">{{ agilidadAritmeticaService.cantidadPuntos }}</h2>
+                                <h6 class="text-muted">Puntos</h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="d-flex">
+                            <i class="fa fa-circle font-10 mr-2 text-danger mt-2"></i>
+                            <div>
+                                <h2 class="mb-0 text-danger">{{ agilidadAritmeticaService.intentos }}</h2>
+                                <h6 class="text-muted">Intentos</h6>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
             </div>
-          </li>
+        </div>
+        <div id="sales-overview" class="position-relative" style="height: 400px;">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form [formGroup]="form" class="form-horizontal pt-3" (ngSubmit)="onSubmit()">
+                                <div class="form-group row">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Dime el Resultado de:</mat-label>
+                                        <input matInput formControlName="calculo" required />
 
-        </ul>
-      </div>
-    </div>
-    <div id="sales-overview" class="position-relative" style="height: 400px;">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <form [formGroup]="form" class="form-horizontal pt-3" (ngSubmit)="onSubmit()">
-                <div class="form-group row">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Dime el Resultado de:</mat-label>
-                    <input
-                      matInput
-                      formControlName="calculo"
-                      required
-                    />
+                                        <mat-error>requerido</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group row">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Escribe el resultado</mat-label>
+                                        <input matInput formControlName="resultado" required (keyup.enter)="onSubmit()" />
+                                        <mat-error>requerido</mat-error>
+                                    </mat-form-field>
+                                </div>
 
-                    <mat-error>requerido</mat-error>
-                  </mat-form-field>
-                </div>
-                <div class="form-group row">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Escribe el resultado</mat-label>
-                    <input
-                      matInput
-                      formControlName="resultado"
-                      required
-                      (keyup.enter)="onSubmit()"
-                    />
-                    <mat-error>requerido</mat-error>
-                  </mat-form-field>
-                </div>
-
-                <div class="form-group row mb-0">
-                  <div class="offset-sm-3 col-sm-9">
-                    <button
-                      type="submit"
-                      class="btn btn-info waves-effect waves-light"
-                    >
+                                <div class="form-group row mb-0">
+                                    <div class="offset-sm-3 col-sm-9">
+                                        <button type="submit" class="btn btn-info waves-effect waves-light">
                       Envíar
                     </button>
-                    <button
-                      class="btn btn-primary"
-                      type="button"
-                      (click)="endGame()"
-                    >
+                                        <button class="btn btn-primary" type="button" (click)="endGame()">
                       Finalizar
                     </button>
-                  </div>
-                </div>
+                                    </div>
+                                </div>
 
-                <!-- <div class="form-group row mb-0"  *ngIf="agilidadAritmeticaService.resultado">
+                                <div class="d-flex">
+                                    <i class="fa fa-circle font-10 mr-2 text-success mt-2"></i>
+                                    <div>
+                                        <h2 class="mb-0 text-success">{{ reloj }}</h2>
+                                        <h6 class="text-muted">Tiempo</h6>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group row mb-0"  *ngIf="agilidadAritmeticaService.resultado">
                   <div class="col-12">
                     <div class="alert alert-primary" role="alert">
                       {{agilidadAritmeticaService.resultado}}
                     </div>
                   </div>
                 </div> -->
-              </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
