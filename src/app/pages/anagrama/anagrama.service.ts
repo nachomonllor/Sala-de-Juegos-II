@@ -2,6 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from '../../auth/auth.service';
+import { Game } from '../../interfaces/game.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +16,7 @@ export class AnagramaService {
   palabraIngresada: string;
   constructor(
     private firestore: AngularFirestore,
+    private authService: AuthService
   ) {
     this.palabraOrdenada = this.seleccionarPalabra();
 
@@ -78,11 +81,11 @@ export class AnagramaService {
     }
   }
   saveGame() {
-    const partida = {
-      nombre: 'Anagrama',
-      cantidadPuntos: this.cantidadPuntos,
-      hora: new Date(),
-      jugador: 'jcvaldes',
+    const partida: Game = {
+      nameGame: 'Anagrama',
+      points: this.cantidadPuntos,
+      date: new Date(),
+      player: 'jcvaldes',
     };
     return this.firestore.collection('lista').add({...partida});
   }

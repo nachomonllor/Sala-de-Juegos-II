@@ -12,6 +12,7 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { MaterialModule } from '../shared/material.module';
 import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-aritmetica.component';
+import { ListadoComponent } from './listado/listado.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-arit
     AgilidadAritmeticaComponent,
     PrimosComponent,
     PiedrapapeltijeraComponent,
-    TatetiComponent
+    TatetiComponent,
+    ListadoComponent
   ],
   imports: [
     CommonModule,

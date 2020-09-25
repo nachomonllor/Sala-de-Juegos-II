@@ -40,7 +40,6 @@ export class AnagramaComponent implements OnInit {
       confirmButtonText: 'Sí',
       cancelButtonText: 'No',
     }).then((result) => {
-      debugger
       if (result.value) {
         this.ngOnInit();
       } else {

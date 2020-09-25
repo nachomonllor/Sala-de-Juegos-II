@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-lg-flex">
+      <div>
+        <h3 class="card-title">
+          <span class="lstick d-inline-block align-middle"></span>
+          Listado
+        </h3>
+        <h6 class="card-subtitle">Tabla de partidas</h6>
+      </div>
+    </div>
+    <div  class="position-relative text-center" style="height: 400px;">
+      <div class="row">
+        <div class="col-md-6">
+          <table
+            class="table mt-4 animated fadeIn faster table-striped table-hover table-dark table-responsive"
+          >
+            <thead class="thead-inverse">
+              <tr>
+                <th>Jugador</th>
+                <th>Juego</th>
+                <th>Puntos</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of games; let i = index;">
+                <td scope="row">{{ item.player }}</td>
+                <td scope="row">{{ item.nameGame }}</td>
+                <td scope="row">{{ item.points }}</td>
+                <td scope="row">{{ item.date }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

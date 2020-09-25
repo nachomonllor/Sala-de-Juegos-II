@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AnagramaComponent } from './anagrama/anagrama.component';
 import { AuthGuard } from '../services/auth.guard';
 import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-aritmetica.component';
+import { ListadoComponent } from './listado/listado.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'piedrapapeltijera',
     component: PiedrapapeltijeraComponent
+  },
+  {
+    path: 'listado',
+    component: ListadoComponent
   },
   {
     path: 'quiensoy',

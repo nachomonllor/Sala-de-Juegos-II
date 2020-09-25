@@ -1,6 +1,7 @@
 export interface  Game {
   nameGame: string;
-  namePlayer: string;
+  player: string;
   points: number;
   date: Date;
+  id?: string;
 }

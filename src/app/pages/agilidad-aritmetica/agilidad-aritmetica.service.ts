@@ -55,7 +55,7 @@ export class AgilidadAritmeticaService {
       nameGame: 'Agilidad Aritmetica',
       points: this.cantidadPuntos,
       date: new Date(),
-      namePlayer: 'nmonllor'
+      player: 'nmonllor'
     };
     this.cantidadPuntos = 0;
     return this.firestore.collection('lista').add({...game});
@@ -74,7 +74,7 @@ export class AgilidadAritmeticaService {
       nameGame: 'Agilidad Aritmetica',
       points: this.cantidadPuntos,
       date: new Date(),
-      namePlayer: 'nmonllor'
+      player: 'nmonllor'
       // jugador: this._userService.user.username
     };
     return this.firestore.collection('agilidad-aritmetica').add({ ...game });
