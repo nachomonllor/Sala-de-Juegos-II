@@ -1,3 +1,4 @@
+import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { PiedrapapeltijeraComponent } from './piedrapapeltijera/piedrapapeltijera.component';
 import { PrimosComponent } from './primos/primos.component';
 import { TatetiComponent } from './tateti/tateti.component';
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'piedrapapeltijera',
     component: PiedrapapeltijeraComponent
+  },
+  {
+    path: 'quiensoy',
+    component: QuienSoyComponent
   },
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' }
   // { path: 'users' component: UserListComponent}
