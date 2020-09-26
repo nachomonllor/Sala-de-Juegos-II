@@ -28,31 +28,11 @@ export class JuegoPiedraPapelTijera  {
   ) {
     
     this.initialize();
-    /* 
-    this.listaJuegos = new Array<Juego>();
-    //  this.listaJuegos = JSON.parse(localStorage.getItem('lista'));
-    let aux: Array<Juego> = JSON.parse(localStorage.getItem('lista'));
-    if (aux != null) {
-      for (let i = 0; i < aux.length; i++) {
-        this.listaJuegos.push(aux[i]);
-      }
-    }
-    */
-
+   
 
   }
-  // ngOnInit() {
-  // this.jugador = JSON.parse(localStorage.getItem('admin'));
-  // console.log(this.jugador);
-  // }
+ 
   
-  /*
-  cantidadPuntos = 0;
-  puntajeCompu = 0;
-  cantidadPuntos = 0;
-  resultadoFinal = '';
-  rondas = 0;
-  */
 
   initialize() {
     this.cantidadPuntos = 0;
@@ -142,15 +122,6 @@ export class JuegoPiedraPapelTijera  {
     this.mostrarSeleccionado = this.elementoSeleccionado;
     this.elementoSeleccionado = '';
   }
-  // finalizar() {
-  //   this.juego = new JuegoAdivina();
-  //   this.juego.nombre = 'Piedra Papel tijera';
-  //   this.juego.cantidadPuntos = this.cantidadPuntos;
-  //   this.juego.hora = new Date();
-  //   this.juego.jugador = this.nombre;
-  //   this.listaJuegos.push(this.juego);
-
-  //   localStorage.setItem('lista', JSON.stringify(this.listaJuegos));
-  //   console.log(this.listaJuegos);
-  // }
+  
+  
 }

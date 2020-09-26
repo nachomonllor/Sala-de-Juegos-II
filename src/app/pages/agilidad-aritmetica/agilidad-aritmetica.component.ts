@@ -98,7 +98,7 @@ export class AgilidadAritmeticaComponent implements OnInit, OnDestroy {
         if (result.value) {
           this.newGame(1, 10);
         } else {
-          this.agilidadAritmeticaService.gameOver();
+          this.agilidadAritmeticaService.saveGame();
           this.router.navigate(['/dashboard']);
         }
       });

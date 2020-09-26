@@ -85,7 +85,7 @@ export class AnagramaService {
       nameGame: 'Anagrama',
       points: this.cantidadPuntos,
       date: new Date(),
-      player: 'jcvaldes',
+      player: 'nmonllor',
     };
     return this.firestore.collection('lista').add({...partida});
   }

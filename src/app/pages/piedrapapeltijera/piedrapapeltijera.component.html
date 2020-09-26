@@ -32,3 +32,9 @@
     <br /> Puntos compu: {{ ppt.puntajeCompu }} - La compu eligio: {{ ppt.mostrarSeleccionado }}
     <br /> {{ ppt.resultadoFinal }}
 </div>
+
+<div>
+    <button class="btn btn-primary" type="button" (click)="endGame(ppt.cantidadPuntos)">
+    Finalizar
+  </button>
+</div>

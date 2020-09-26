@@ -1,5 +1,7 @@
 //import { Juego } from '../../clases/juego';
 
+import { PrimoService } from './primo.service';
+
 export class JuegoPrimos  {
   listaPrimos = [];
 

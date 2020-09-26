@@ -52,7 +52,7 @@ export class PiedrapapeltijeraComponent {
       } else {
         this.subscription.unsubscribe();
         this._pptService.saveGame(this.ppt.cantidadPuntos);
-        this.router.navigate(['/Principal']);
+        this.router.navigate(['/dashboard']);
       }
     });
   }

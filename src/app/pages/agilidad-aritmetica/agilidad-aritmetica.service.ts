@@ -50,6 +50,7 @@ export class AgilidadAritmeticaService {
     }
   }
 
+  /*
   gameOver() {
     const game: Game = {
       nameGame: 'Agilidad Aritmetica',
@@ -59,7 +60,7 @@ export class AgilidadAritmeticaService {
     };
     this.cantidadPuntos = 0;
     return this.firestore.collection('lista').add({...game});
-  }
+  }*/
 
   subirDeNivel() {
     this.limite += 20;
@@ -69,14 +70,28 @@ export class AgilidadAritmeticaService {
       this.maximo_puntaje = this.cantidadPuntos;
     }
   }
+
+  /*
   saveGame() {
     const game: Game = {
       nameGame: 'Agilidad Aritmetica',
       points: this.cantidadPuntos,
       date: new Date(),
       player: 'nmonllor'
-      // jugador: this._userService.user.username
+       
     };
     return this.firestore.collection('agilidad-aritmetica').add({ ...game });
+  }*/
+  
+  saveGame() {
+    const partida: Game = {
+      nameGame: 'Agilidad Aritmetica',
+      points: this.cantidadPuntos,
+      date: new Date(),
+      player: 'nmonllor',
+    };
+    return this.firestore.collection('lista').add({...partida});
   }
+
+
 }

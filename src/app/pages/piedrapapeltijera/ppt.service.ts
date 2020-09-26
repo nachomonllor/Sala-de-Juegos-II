@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 //import { UserService } from '../../servicios/user.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Game } from 'src/app/interfaces/game.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +24,18 @@ export class PptService {
     localStorage.setItem('lista', JSON.stringify(lista));
   }*/
 
-  saveGame(puntos:number) {
-    const partida = {
-      nombre: 'Anagrama',
-      cantidadPuntos: puntos,
-      hora: new Date(),
-      jugador: 'nmonllor',
+  
+  
+  saveGame(puntos: number) {
+    const partida: Game = {
+      nameGame: 'Piedra Papel Tijera',
+      points: puntos, // this.cantidadPuntos,
+      date: new Date(),
+      player: 'nmonllor',
     };
     return this.firestore.collection('lista').add({...partida});
   }
+
 
 
 }
