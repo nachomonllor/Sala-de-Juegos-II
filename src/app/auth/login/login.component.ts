@@ -28,6 +28,16 @@ export class LoginComponent implements OnInit {
       password: new FormControl('123456', Validators.required),
     });
   }
+   
+  harcodearUsuarioValido() {
+    this.form = new FormGroup({
+      email: new FormControl('octavio@gmail.com', Validators.required),
+      password: new FormControl('123456', Validators.required),
+    });
+  }
+
+
+
   recoverForm() {
     // ==============================================================
     // Login and Recover Password
