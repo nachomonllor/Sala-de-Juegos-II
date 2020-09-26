@@ -11,7 +11,7 @@ import { UsersService } from './users.service';
 })
 export class UserListComponent implements OnInit {
   dataSource: MatTableDataSource<User>;
-  displayedColumns: string[] = ['firstname', 'lastname'];
+  displayedColumns: string[] = ['firstname', 'lastname', 'email'];
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
