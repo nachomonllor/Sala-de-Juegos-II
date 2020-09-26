@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Game } from 'src/app/interfaces/game.interface';
 import Swal from 'sweetalert2';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { JuegoMemotest } from './juego-memotest';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class MemotestService  {
   constructor(private firestore: AngularFirestore) {
 
   }
-  
+   
+  memo = new JuegoMemotest(this);
+
   saveGame(puntos: number) {
     const partida: Game = {
       nameGame: 'Memotest',
@@ -34,7 +37,8 @@ export class MemotestService  {
       cancelButtonText: 'No',
     }).then((result) => {
       if (result.value) {
-         
+         this.memo.ponerEnNegro();
+         this.memo.initialize();
       } else {
         this.saveGame(puntos);
         this.router.navigate(['/dashboard']);

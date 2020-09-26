@@ -1,15 +1,43 @@
+import { ClaveValor } from './clave-valor';
+
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../../auth/auth.service';
 import { Game } from '../../interfaces/game.interface';
+
+
 @Injectable({
   providedIn: 'root'
 })
+
+/*
+interface Diccio {
+  pal: string;
+  sig: string;
+}*/
+
 export class AnagramaService {
-  palabras: string[] = ['computadora', 'microfono', 'mesa', 'telefono', 'anagrama'];
+  /*
+    palabras: string[] = { 'computadora',  
+                       'microfono',  
+                       'mesa', 'telefono', 'anagrama'};
+    */
+
+    /*
+      palabras: {key: string, value: string}[] = [
+                        {key: 'first', value: 'one'},
+                        {key: 'second', value: 'two'}
+                    ];*/
+    
+   //const myPair = new Pair<string, number>('test', 123);
+   //console.log(myPair.getKey(), myPair.getValue());
+   palabras = new Array< ClaveValor<string, string>>();
+    
+
   palabraOrdenada: string;
+  significadoPalDes:string;
   intentos = 0;
   cantidadPuntos = 0;
   resultado: string;
@@ -18,6 +46,10 @@ export class AnagramaService {
     private firestore: AngularFirestore,
     private authService: AuthService
   ) {
+
+    this.palabras.push(new ClaveValor("computadora", "maquina que sirve para programar"));
+    this.palabras.push(new ClaveValor("microfono", "cosa que interpreta la voz"));
+
     this.palabraOrdenada = this.seleccionarPalabra();
 
   }
@@ -25,8 +57,10 @@ export class AnagramaService {
   // Selecciona palabra aleatoriamente
   seleccionarPalabra() {
     let indSeleccionado = Math.floor(Math.random() * this.palabras.length);
-    this.palabraOrdenada = this.palabras[indSeleccionado];
-    console.log(this.palabraOrdenada);
+    this.palabraOrdenada = this.palabras[indSeleccionado].getKey();
+    this.significadoPalDes = this.palabras[indSeleccionado].getValue();
+
+    console.log(this.palabraOrdenada + ' '  + this.significadoPalDes);
     return this.palabraOrdenada;
   }
 

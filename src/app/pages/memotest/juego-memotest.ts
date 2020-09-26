@@ -44,7 +44,22 @@ export class JuegoMemotest  {
   initialize() {
     //  clearInterval(this._timer);
     // this._timer = setInterval(() => this.contador(), 1000);
+    
+    for(let i =0; i<4; i++) {
+      for(let j =0; j<4; j++) {
+        this.posiciones[i][j] = 0;
+      }
+    }
+
     this.totalPrimos = 0;
+    this.limite = 30;
+    this.reloj = 25;
+    this.nivel = 1;
+    this.puntos = 0;
+    this.maximo_puntaje = 0;
+
+    this.numeroElegido =-1;
+    this.listaElegidos = new Array<number>();
 
    // this.reloj = 30;
 
@@ -124,6 +139,11 @@ export class JuegoMemotest  {
         this.listaElegidos.push(this.posiciones[fila][columna] ) ;
         this.numeroElegido = -1;
         this.puntos+=10;
+      }
+      else{
+        if(this.puntos > 0) {
+            this.puntos--;
+        }
       }
       
       if(this.contadorMostrados > 0) {
