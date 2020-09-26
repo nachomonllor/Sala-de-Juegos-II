@@ -45,6 +45,7 @@ export class PrimosComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.ngOnInit();
+        this.primos.initialize();
       } else {
         this._primoService.saveGame(this.primos.puntos);
         this.router.navigate(['/dashboard']);

@@ -56,6 +56,7 @@ export class TatetiComponent implements OnInit, OnDestroy {
       allowOutsideClick: false
     }).then((result) => {
       if (result.value) {
+        this.tateti = new JuegoTateti();
         this.tateti.initialize();
         this.setTimer();
       } else {

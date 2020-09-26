@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ListadoService } from './listado.service';
 import { Game } from '../../interfaces/game.interface';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-listado',
@@ -13,6 +14,9 @@ export class ListadoComponent implements OnInit {
   dataSource: MatTableDataSource<Game>;
   displayedColumns: string[] = ['jugador', 'juego', 'puntos', 'fecha'];
   constructor(private listadoService: ListadoService) { }
+
+  @ViewChild(MatSort) sort: MatSort;
+
 
   ngOnInit(): void {
     this.listadoService.getListado().subscribe((data: Game[]) => {

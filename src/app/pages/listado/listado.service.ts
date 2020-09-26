@@ -19,7 +19,7 @@ export class ListadoService {
     .snapshotChanges()
     .pipe(
       map(snaps => {
-        debugger
+        //debugger
         return snaps.map(snap => {
           return  {
             id: snap.payload.doc.id,
