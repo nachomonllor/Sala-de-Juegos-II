@@ -12,7 +12,7 @@ import {MemotestService} from './memotest.service';
 })
 export class MemotestComponent implements OnInit {
 
-  memo = new JuegoMemotest();
+  memo = new JuegoMemotest(this._memotestService);
   //_timer: any;
   private maxTime = 30;
   constructor(
@@ -26,24 +26,8 @@ export class MemotestComponent implements OnInit {
 
   
   
-
-  endGame() {
-    Swal.fire({
-      title: 'Game Over',
-      text: 'Â¿Quires seguir Jugando?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'SÃ­',
-      cancelButtonText: 'No',
-    }).then((result) => {
-      if (result.value) {
-        this.ngOnInit();
-      } else {
-        //this._primoService.saveGame(this.primos.puntos);
-        //this.router.navigate(['/dashboard']);
-      }
-    });
-  }
+ 
+  
 
 
 }

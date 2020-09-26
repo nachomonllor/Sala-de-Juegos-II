@@ -1,3 +1,4 @@
+import { MemotestService } from './memotest.service';
 
 export class JuegoMemotest  {
  // listaPrimos = [];
@@ -27,10 +28,12 @@ export class JuegoMemotest  {
   nivel = 1;
   puntos = 0;
   maximo_puntaje = 0;
-  //juego: Juego;
-  // jugador:Jugador;
 
-  constructor() {
+  numeroElegido: number=-1;
+  listaElegidos = new Array<number>();
+ 
+
+  constructor (private _memoService: MemotestService ) {
 
     // clearInterval(this._timer);
     // this._timer = setInterval(() => this.contador(), 1000);
@@ -111,8 +114,7 @@ export class JuegoMemotest  {
       clearInterval(this.interval);
     }
 
-    numeroElegido: number=-1;
-    listaElegidos = new Array<number>();
+    
 
     presion(fila: number, columna: number) {
       this.time =0;
@@ -135,9 +137,25 @@ export class JuegoMemotest  {
       }
 
       this.contadorMostrados--;
+
+
+      if(this.chequaerSiEstaCompleto() ) {
+
+        if(this.puntos > this.maximo_puntaje) {
+          this.maximo_puntaje = this.puntos;
+        }
+
+        this._memoService.endGame(this.puntos);
+      }
+
       this.startTimer();
  
 
+    }
+
+    chequaerSiEstaCompleto() {
+
+       return this.listaElegidos.length == 8;
     }
 
 
