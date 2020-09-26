@@ -1,3 +1,4 @@
+import { MemotestComponent } from './memotest/memotest.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { PiedrapapeltijeraComponent } from './piedrapapeltijera/piedrapapeltijera.component';
 import { PrimosComponent } from './primos/primos.component';
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'piedrapapeltijera',
     component: PiedrapapeltijeraComponent
+  },
+  {
+    path: 'memotest',
+    component: MemotestComponent
   },
   {
     path: 'listado',

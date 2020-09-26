@@ -13,6 +13,7 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { MaterialModule } from '../shared/material.module';
 import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-aritmetica.component';
 import { ListadoComponent } from './listado/listado.component';
+import { MemotestComponent } from './memotest/memotest.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ListadoComponent } from './listado/listado.component';
     PrimosComponent,
     PiedrapapeltijeraComponent,
     TatetiComponent,
-    ListadoComponent
+    ListadoComponent,
+    MemotestComponent
   ],
   imports: [
     CommonModule,
