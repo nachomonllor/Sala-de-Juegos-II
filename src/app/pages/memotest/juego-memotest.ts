@@ -121,6 +121,7 @@ export class JuegoMemotest  {
         //this.estadoBotones[fila][columna] = "white";
         this.listaElegidos.push(this.posiciones[fila][columna] ) ;
         this.numeroElegido = -1;
+        this.puntos+=10;
       }
       
       if(this.contadorMostrados > 0) {

@@ -19,23 +19,14 @@ export class MemotestComponent implements OnInit {
     private router: Router,
     public _memotestService: MemotestService) {
   }
+
   ngOnInit() {
-    this.memo.reloj = this.maxTime;
-    this.memo.maximo_puntaje = this.memo.puntos;
-    this.memo.puntos = 0;
-   // this.primos.resetearColorBotones();
-    this.memo.nivel = 1;
-    //this._timer = setInterval(() => this.contador(), 1000);
+
   }
 
-  contador() {
-    this.memo.reloj--;
-    if (this.memo.reloj <= 0) {
-     // clearInterval(this._timer);
-      this.endGame();
-    }
-    // this.pasarSiguiente();
-  }
+  
+  
+
   endGame() {
     Swal.fire({
       title: 'Game Over',

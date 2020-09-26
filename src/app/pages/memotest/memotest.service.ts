@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 
 export class MemotestService  {
  
-  
+  /*
   
     listaAleatorios: Array<number>;
     // tslint:disable-next-line: member-ordering
@@ -26,7 +26,7 @@ export class MemotestService  {
     ];
   
     totalPrimos = 0;
-    limite = 30;
+    //limite = 30;
     reloj = 100;
     nivel = 1;
     puntos = 0;
@@ -42,7 +42,7 @@ export class MemotestService  {
     initialize() {
        
        //this._timer = setInterval(() => this.contador(), 1000);
-       
+
       //le digo que el indice sea el numero, y el elemento en el indice es la cantidad
       //de veces que tiene que estar el numero
       let numerosDisponibles = new Array<number>();
@@ -112,17 +112,20 @@ export class MemotestService  {
   
       presion(fila: number, columna: number) {
         this.time =0;
-  
+        this.puntos +=10;
         if(this.posiciones[fila][columna] == this.numeroElegido) {
           //this.estadoBotones[fila][columna] = "white";
           this.listaElegidos.push(this.posiciones[fila][columna] ) ;
           this.numeroElegido = -1;
+          
         }
         
         if(this.contadorMostrados > 0) {
           this.estadoBotones[fila][columna] = "white";
           this.numeroElegido = this.posiciones[fila][columna];
           console.log("Numero Elegido: " + this.numeroElegido);
+
+           
         }
         else{
           this.time = 4;
@@ -134,27 +137,10 @@ export class MemotestService  {
   
   
       }
+
+      */
   
-      contador() {
-        //clearInterval(myVar);
-        this.reloj--;
-        if (this.reloj <= 0) {
-          this.nivel = 1;
-          this.limite = 20;
-
-          this.puntos = this.reloj;
-
-          if (this.puntos > this.maximo_puntaje) {
-            this.maximo_puntaje = this.puntos;
-          }
-          //this.puntos = 0;
-          //  clearInterval(this._timer);
-          //this.resetearColorBotones();
-          // alert('Se te acabo el tiempo');
-          //this.initialize();
-        }
-      }
-
+      
   
   }
 
