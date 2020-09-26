@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-12">
+    <mat-card>
+      <mat-card-header
+        [style.backgroundColor]="'#165396'"
+        class="p-2 text-white"
+      >
+        <mat-card-title>
+          Lista de Jugadores
+        </mat-card-title>
+        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-12">
+
+            <div class="mat-elevation-z8">
+              <div class="table-responsive">
+                <mat-table
+                  [dataSource]="dataSource"
+                  matSort
+                  matSortActive="id"
+                  matSortDirection="desc"
+                  matSortDisableClear
+                >
+                  <ng-container matColumnDef="firstname">
+                    <mat-header-cell *matHeaderCellDef>
+                      Nombre
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.firstname }}
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="lastname">
+                    <mat-header-cell *matHeaderCellDef>
+                      Apellido
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.lastname }}
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="loading">
+                    <mat-footer-cell *matFooterCellDef colspan="6">
+                      Loading data...
+                    </mat-footer-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="noData">
+                    <mat-footer-cell *matFooterCellDef colspan="6">
+                      No data.
+                    </mat-footer-cell>
+                  </ng-container>
+                  <mat-header-row
+                    *matHeaderRowDef="displayedColumns"
+                  ></mat-header-row>
+                  <mat-row
+                    matRipple
+                    *matRowDef="
+                      let row;
+                      columns: displayedColumns;
+                      let i = index
+                    "
+                  ></mat-row>
+                </mat-table>
+                <mat-paginator
+                  #paginator
+                  showFirstLastButtons="true"
+                  [pageSize]="10"
+                  [pageSizeOptions]="[10, 25, 50, 100]"
+                ></mat-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -10,6 +10,7 @@ import { AnagramaComponent } from './anagrama/anagrama.component';
 import { AuthGuard } from '../services/auth.guard';
 import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-aritmetica.component';
 import { ListadoComponent } from './listado/listado.component';
+import { UserListComponent } from '../pages/users/user-list/user-list.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'listado',
     component: ListadoComponent
+  },
+  {
+    path: 'usuarios',
+    component: UserListComponent
   },
   {
     path: 'quiensoy',

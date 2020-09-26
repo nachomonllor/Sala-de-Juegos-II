@@ -6,3 +6,14 @@
 .mat-form-field {
   width: 100%;
 }
+.mat-header-cell {
+  background-color: #488cc9;
+  font-family: monospace;
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  button.mat-sort-header-button {
+    text-transform: uppercase;
+  }
+}

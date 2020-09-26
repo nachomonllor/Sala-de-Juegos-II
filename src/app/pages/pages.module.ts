@@ -14,7 +14,7 @@ import { MaterialModule } from '../shared/material.module';
 import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-aritmetica.component';
 import { ListadoComponent } from './listado/listado.component';
 import { MemotestComponent } from './memotest/memotest.component';
-
+import { UserListComponent } from './users/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { MemotestComponent } from './memotest/memotest.component';
     PiedrapapeltijeraComponent,
     TatetiComponent,
     ListadoComponent,
-    MemotestComponent
+    MemotestComponent,
+    UserListComponent
   ],
   imports: [
     CommonModule,

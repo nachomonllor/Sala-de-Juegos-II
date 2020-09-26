@@ -4,7 +4,7 @@ export interface User {
   email: string;
   active: boolean;
   img?:string;
-  id?: number;
+  id?: string;
 }
 
 
