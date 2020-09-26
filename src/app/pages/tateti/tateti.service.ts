@@ -13,18 +13,7 @@ export class TatetiService {
   constructor(private firestore: AngularFirestore) {
 
   }
-
-/*
-  saveGame(puntos: number) {
-    const partida = {
-      nombre: 'Tateti',
-      points: puntos,
-      hora: new Date(),
-      jugador: 'nmonllor',
-    };
-    return this.firestore.collection('lista').add({...partida});
-  }*/
-
+  
   saveGame(puntos:number) {
     const partida: Game = {
       nameGame: 'Tateti',
