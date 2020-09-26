@@ -3,9 +3,9 @@
         <div class="d-lg-flex">
             <div>
                 <h3 class="card-title">
-                    <span class="lstick d-inline-block align-middle"></span> Encuentra todos los numeros memo
+                    <span class="lstick d-inline-block align-middle"></span> Encuentra Las parejas de numeros
                 </h3>
-                <h6 class="card-subtitle">Los errores se penalizan con 3 segundos</h6>
+                <h6 class="card-subtitle">Mientras mas rapido lo hagas obtendras mejor puntuacion</h6>
             </div>
             <div class="ml-auto">
                 <ul class="list-inline">
@@ -14,7 +14,7 @@
                             <i class="fa fa-circle font-10 mr-2 text-success mt-2"></i>
                             <div>
                                 <h2 class="mb-0 text-success">{{ memo.maximo_puntaje }}</h2>
-                                <h6 class="text-muted">MÃ¡ximo puntaje</h6>
+                                <h6 class="text-muted">Máximo puntaje</h6>
                             </div>
                         </div>
                     </li>
@@ -99,14 +99,11 @@
                 </div>
                 <div class="col-6">
                     <div class="texto_puntos text-left">
-
-                        <br /> Tiempo {{ memo.reloj }} - Nivel {{ memo.nivel }}
-                        <br /> Puntos: {{ memo.puntos }}
+                        <br /> Puntos: {{ _memotestService.reloj }}
                         <br /> Mejor Puntuacion: {{ memo.maximo_puntaje }}
                     </div>
-                    <div class="text-left mt-4">
-                        <button mat-raised-button color="accent" (click)="endGame()">Finalizar</button>
-                    </div>
+
+
                 </div>
             </div>
 

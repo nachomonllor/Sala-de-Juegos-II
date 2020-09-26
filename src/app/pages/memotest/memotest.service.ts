@@ -27,24 +27,22 @@ export class MemotestService  {
   
     totalPrimos = 0;
     limite = 30;
-    reloj = 25;
+    reloj = 100;
     nivel = 1;
     puntos = 0;
     maximo_puntaje = 0;
+    _timer:any;
 
     constructor() {
   
-      
+      this.startTimer();
       this.initialize();
       this.ponerEnNegro();
     }
     initialize() {
-      //  clearInterval(this._timer);
-      // this._timer = setInterval(() => this.contador(), 1000);
-     // this.totalPrimos = 0;
-  
-    
-  
+       
+       //this._timer = setInterval(() => this.contador(), 1000);
+       
       //le digo que el indice sea el numero, y el elemento en el indice es la cantidad
       //de veces que tiene que estar el numero
       let numerosDisponibles = new Array<number>();
@@ -137,6 +135,26 @@ export class MemotestService  {
   
       }
   
+      contador() {
+        //clearInterval(myVar);
+        this.reloj--;
+        if (this.reloj <= 0) {
+          this.nivel = 1;
+          this.limite = 20;
+
+          this.puntos = this.reloj;
+
+          if (this.puntos > this.maximo_puntaje) {
+            this.maximo_puntaje = this.puntos;
+          }
+          //this.puntos = 0;
+          //  clearInterval(this._timer);
+          //this.resetearColorBotones();
+          // alert('Se te acabo el tiempo');
+          //this.initialize();
+        }
+      }
+
   
   }
 
