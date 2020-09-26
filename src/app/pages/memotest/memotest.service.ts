@@ -5,9 +5,8 @@ import { Injectable } from '@angular/core';
 })
 
 export class MemotestService  {
-  // listaPrimos = [];
+ 
   
-    // _timer:any;
   
     listaAleatorios: Array<number>;
     // tslint:disable-next-line: member-ordering
@@ -32,23 +31,19 @@ export class MemotestService  {
     nivel = 1;
     puntos = 0;
     maximo_puntaje = 0;
-    //juego: Juego;
-    // jugador:Jugador;
-  
+
     constructor() {
   
-      // clearInterval(this._timer);
-      // this._timer = setInterval(() => this.contador(), 1000);
-      //this.resetearColorBotones();
+      
       this.initialize();
       this.ponerEnNegro();
     }
     initialize() {
       //  clearInterval(this._timer);
       // this._timer = setInterval(() => this.contador(), 1000);
-      this.totalPrimos = 0;
+     // this.totalPrimos = 0;
   
-    // this.reloj = 30;
+    
   
       //le digo que el indice sea el numero, y el elemento en el indice es la cantidad
       //de veces que tiene que estar el numero
@@ -74,14 +69,11 @@ export class MemotestService  {
   
     //pongo en negro el tablero entero
   ponerEnNegro(){
-  
-    
       for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
           if(this.listaElegidos.indexOf(this.posiciones[i][j]) < 0 ) {
               this.estadoBotones[i][j] = 'black';
           }
-  
         }
       }
   }
@@ -91,6 +83,7 @@ export class MemotestService  {
       time: number = 0;
       interval;
       play = false;
+      
       startTimer() {
         this.pauseTimer();
         //this.time = 4;
