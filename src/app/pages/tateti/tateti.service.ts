@@ -3,6 +3,7 @@
 //import { UserService } from '../../servicios/user.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable, OnInit } from '@angular/core';
+import { Game } from 'src/app/interfaces/game.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,13 +14,23 @@ export class TatetiService {
 
   }
 
-
+/*
   saveGame(puntos: number) {
     const partida = {
-      nombre: 'Anagrama',
-      cantidadPuntos: puntos,
+      nombre: 'Tateti',
+      points: puntos,
       hora: new Date(),
-      jugador: 'nomonllor',
+      jugador: 'nmonllor',
+    };
+    return this.firestore.collection('lista').add({...partida});
+  }*/
+
+  saveGame(puntos:number) {
+    const partida: Game = {
+      nameGame: 'Tateti',
+      points: puntos,
+      date: new Date(),
+      player: 'nmonllor',
     };
     return this.firestore.collection('lista').add({...partida});
   }

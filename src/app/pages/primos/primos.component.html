@@ -121,7 +121,7 @@
                         <br /> Mejor Puntuacion: {{ primos.maximo_puntaje }}
                     </div>
                     <div class="text-left mt-4">
-                        <button mat-raised-button color="accent" (click)="_primoService.saveGame(primos.maximo_puntaje)">Finalizar</button>
+                        <button mat-raised-button color="accent" (click)="endGame()">Finalizar</button>
                     </div>
                 </div>
             </div>
