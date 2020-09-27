@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
+
 import {MemotestService} from './memotest.service';
 
 @Component({
@@ -49,28 +51,38 @@ export class MemotestComponent implements OnInit {
   nivel = 1;
   puntos = 0;
   maximo_puntaje = 0;
-  numeroElegido: number = -1;
+
+  numeroElegido: number=-1;
+  filaAnterior = -1;//para evitar que se tome como pareja cuando se cliquea la misma casilla 2 veces
+  colAnterior = -1;//para evitar que se tome como pareja cuando se cliquea la misma casilla 2 veces
+
   listaElegidos = new Array<number>();
   contadorMostrados = 2;
+ 
   time: number = 0;
   interval;
   play = false;
 
-  filaAnterior = -1;//para evitar que se tome como pareja cuando se cliquea la misma casilla 2 veces
-  colAnterior = -1;//para evitar que se tome como pareja cuando se cliquea la misma casilla 2 veces
-
   
-  initialize() { //cargo el array de posiciones e inicializo todas las variables
- 
-    this.limite = 30;
+  initialize() {
+    //  clearInterval(this._timer);
+    // this._timer = setInterval(() => this.contador(), 1000);
+    
+    for(let i =0; i<4; i++) {
+      for(let j =0; j<4; j++) {
+        this.posiciones[i][j] = -1;
+      }
+    }
+
+   // this.totalPrimos = 0;
+    //this.limite = 30;
     this.reloj = 25;
     this.nivel = 1;
     this.puntos = 0;
     this.maximo_puntaje = 0;
-    this.numeroElegido = -1;
+    this.numeroElegido =-1;
     this.listaElegidos = new Array<number>();
-    
-
+ 
     //le digo que el indice sea el numero, y el elemento en el indice es la cantidad
     //de veces que tiene que estar el numero
     let numerosDisponibles = new Array<number>();
@@ -79,6 +91,7 @@ export class MemotestComponent implements OnInit {
     }
 
     for(let i =0; i<4; i++) {
+
       for(let j =0; j<4; j++) {
          let numeroAleatorio = Math.floor(Math.random() * 8) ; 
           console.log(numeroAleatorio);
@@ -91,13 +104,14 @@ export class MemotestComponent implements OnInit {
     }
   }
 
-  //pongo en negro el tablero entero MENOS los que estan descubiertos
+  //pongo en negro el tablero entero
  ponerEnNegro(){
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
-         if(this.listaElegidos.indexOf(this.posiciones[i][j]) < 0 ) {//si no forma parte de la lista de parejas descubiertas
-            this.estadoBotones[i][j] = 'black';//entonces pongo al casillero en negro 
+         if(this.listaElegidos.indexOf(this.posiciones[i][j]) < 0 ) {
+            this.estadoBotones[i][j] = 'black';
          }
+
       }
     }
  }
@@ -110,10 +124,10 @@ export class MemotestComponent implements OnInit {
     }
   }
 
-  
+   
     startTimer() {
       this.pauseTimer();
-      //this.time = 4;
+     // this.time = 0;
       this.play = true;
       this.interval = setInterval(() => {
         this.time++;
@@ -123,10 +137,7 @@ export class MemotestComponent implements OnInit {
           
           this.pauseTimer();
           this.ponerEnNegro();
-          this.numeroElegido = -1;
-          this.filaAnterior = -1;
-          this.colAnterior -1;
-
+         
           this.time =0 ;
           this.play = false;
           this.contadorMostrados = 2;
@@ -140,16 +151,21 @@ export class MemotestComponent implements OnInit {
     }
 
     
+
     presion(fila: number, columna: number) {
       this.time =0;
-
+      console.log("Numero Elegido: " + this.numeroElegido);
+      console.log("distinta fila y col: " + (this.filaAnterior != fila || this.colAnterior != columna));
+      console.log(this.posiciones[fila][columna] == this.numeroElegido);
       if(this.posiciones[fila][columna] == this.numeroElegido ) {
-        //this.estadoBotones[fila][columna] = "white";
-        this.listaElegidos.push(this.posiciones[fila][columna] ) ;
-        this.numeroElegido = -1;
-        // this.filaAnterior = -1;
-        // this.colAnterior = -1;
-        this.puntos+=10;
+     
+        if(this.filaAnterior != fila || this.colAnterior != columna) {  
+
+           if(this.listaElegidos.indexOf(this.posiciones[fila][columna]) < 0) {
+               this.listaElegidos.push(this.posiciones[fila][columna] );
+               this.puntos+=10;
+           }
+          }
       }
       else{
         if(this.puntos > 0) {
@@ -157,28 +173,26 @@ export class MemotestComponent implements OnInit {
         }
       }
 
-      // this.filaAnterior = fila;
-      // this.colAnterior = columna;
-      
+      this.filaAnterior = fila;
+      this.colAnterior = columna;
+      this.numeroElegido = this.posiciones[fila][columna];
       
       if(this.contadorMostrados > 0) {
         this.estadoBotones[fila][columna] = "white";
-        this.numeroElegido = this.posiciones[fila][columna];
-       // this.filaAnterior = fila;
-       // this.colAnterior = columna;
-
-        console.log("Numero Elegido: " + this.numeroElegido);
+       
       }
       else{
         this.time = 4;
+        this.contadorMostrados = 2;
         this.ponerEnNegro();
       }
-
+      
       this.contadorMostrados--;
 
 
       if(this.chequaerSiEstaCompleto() ) {
 
+        console.log("chequear si esta completo: " + this.chequaerSiEstaCompleto());
         if(this.puntos > this.maximo_puntaje) {
           this.maximo_puntaje = this.puntos;
         }
@@ -190,60 +204,6 @@ export class MemotestComponent implements OnInit {
  
 
     }
-
-
-    /*
-    presion(fila: number, columna: number) {
-      this.time =0;
-
-      if(this.posiciones[fila][columna] == this.numeroElegido  ) {
-        //this.estadoBotones[fila][columna] = "white";
-        this.listaElegidos.push(this.posiciones[fila][columna] ) ;
-        //this.numeroElegido = -1;
-       // this.filaAnterior = -1;
-        //this.colAnterior = -1;
-        this.puntos+=10;
-      }
-      else{
-        if(this.puntos > 0) {
-            this.puntos--;
-        }
-      }
-
-      // this.filaAnterior = fila;
-      // this.colAnterior = columna;
-      
-      
-      if(this.contadorMostrados > 0 && this.filaAnterior != fila && this.colAnterior != columna ) {
-        this.estadoBotones[fila][columna] = "white";
-      
-
-        console.log("Numero Elegido: " + this.numeroElegido);
-      }
-      else{
-        this.time = 4;
-        this.ponerEnNegro();
-      }
-
-      this.numeroElegido = this.posiciones[fila][columna];
-      this.filaAnterior = fila;
-      this.colAnterior = columna;
-      this.contadorMostrados--;
-
-
-      if(this.chequaerSiEstaCompleto() ) {
-
-        if(this.puntos > this.maximo_puntaje) {
-          this.maximo_puntaje = this.puntos;
-        }
-
-        this.endGame(this.puntos);
-      }
-
-      this.startTimer();
- 
-
-    }*/
 
     chequaerSiEstaCompleto() {
 
@@ -253,7 +213,7 @@ export class MemotestComponent implements OnInit {
   
     endGame(puntos: number) {
       Swal.fire({
-        title: 'Excelente!!, hiciste ' + puntos + 'puntos',
+        title: 'Excelente!, hiciste: ' + puntos + ' puntos',
         text: 'Querés seguir Jugando?',
         icon: 'warning',
         showCancelButton: true,
