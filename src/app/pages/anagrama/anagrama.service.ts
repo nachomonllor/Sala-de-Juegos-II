@@ -50,6 +50,18 @@ export class AnagramaService {
     this.palabras.push(new ClaveValor("computadora", "maquina que sirve para programar"));
     this.palabras.push(new ClaveValor("microfono", "cosa que interpreta la voz"));
 
+    this.palabras.push(new ClaveValor("computadora", "maquina que sirve para programar"));
+    this.palabras.push(new ClaveValor("microfono", "cosa que interpreta la voz"));
+    this.palabras.push(new ClaveValor("carne", "alimento"));
+    this.palabras.push(new ClaveValor("efimero", "algo que dura poco tiempo"));
+    this.palabras.push(new ClaveValor("superfluo", "no necesario, está de mas"));
+    this.palabras.push(new ClaveValor("vaso", "objeto para contener liquido"));
+    this.palabras.push(new ClaveValor("agua", "liquido"));
+    this.palabras.push(new ClaveValor("parlante", "aparato electronico que emte sonido"));
+    this.palabras.push(new ClaveValor("papel", "elemento que se usa para escribir"));
+    this.palabras.push(new ClaveValor("profesor", "persona que enseña en escuelas o universidades"));
+    
+    
     this.palabraOrdenada = this.seleccionarPalabra();
 
   }
