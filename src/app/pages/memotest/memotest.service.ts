@@ -28,30 +28,7 @@ export class MemotestService  {
     };
     return this.firestore.collection('lista').add({...partida});
   }
-  /*
-  endGame(puntos: number) {
-    Swal.fire({
-      title: 'Game Over',
-      text: 'Querés seguir Jugando?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si',
-      cancelButtonText: 'No',
-
-    }).then((result) => {
-
-      if (result.value) {
-        this.saveGame(puntos);
-         this.memo.initialize();
-         this.memo.reiniciar();
-         
-      } else {
-        this.saveGame(puntos);
-        this.router.navigate(['/dashboard']);
-      }
-    });
-  }
-  */
+   
      
   
   }
