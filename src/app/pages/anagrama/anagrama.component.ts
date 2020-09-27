@@ -21,10 +21,13 @@ export class AnagramaComponent implements OnInit {
   }
   createForm() {
     const palabraDesordenada = this.anagramaService.desordenarPalabra();
-
+    const significado = this.anagramaService.significadoPalDes;
     this.form = new FormGroup({
+      
+      palabraDesordenada: new FormControl(palabraDesordenada),
+      significado: new FormControl(significado),
       palabraOrdenada: new FormControl(null, Validators.required),
-      palabraDesordenada: new FormControl(palabraDesordenada, Validators.required),
+     
     });
   }
   onSubmit() {
