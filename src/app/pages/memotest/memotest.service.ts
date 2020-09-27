@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Game } from 'src/app/interfaces/game.interface';
 import Swal from 'sweetalert2';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { JuegoMemotest } from './juego-memotest';
 import { Router } from '@angular/router';
 
 @Injectable({
