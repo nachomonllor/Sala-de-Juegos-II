@@ -4,7 +4,7 @@ export class JuegoMemotest  {
  // listaPrimos = [];
 
   // _timer:any;
-
+/*
   listaAleatorios: Array<number>;
   // tslint:disable-next-line: member-ordering
   estadoBotones: string[][] = [
@@ -47,7 +47,7 @@ export class JuegoMemotest  {
     
     for(let i =0; i<4; i++) {
       for(let j =0; j<4; j++) {
-        this.posiciones[i][j] = 0;
+        this.posiciones[i][j] = -1;
       }
     }
 
@@ -98,6 +98,19 @@ export class JuegoMemotest  {
       }
     }
  }
+
+ reiniciar(){
+
+   
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+        
+          this.estadoBotones[i][j] = 'black';
+          this.posiciones[i][j] = 0;
+
+    }
+  }
+}
 
     contadorMostrados = 2;
  
@@ -175,8 +188,9 @@ export class JuegoMemotest  {
 
     chequaerSiEstaCompleto() {
 
-       return this.listaElegidos.length == 8;
+       return this.listaElegidos.length == 2;
     }
 
+    */
 
 }
