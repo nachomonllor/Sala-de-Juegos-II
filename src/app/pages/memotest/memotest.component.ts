@@ -53,8 +53,8 @@ export class MemotestComponent implements OnInit {
   maximo_puntaje = 0;
 
   numeroElegido: number=-1;
-  filaActual = -1;//para evitar que se tome como pareja cuando se cliquea la misma casilla 2 veces
-  colActual = -1;//para evitar que se tome como pareja cuando se cliquea la misma casilla 2 veces
+  filaAnterior = -1;//para evitar que se tome como pareja cuando se cliquea la misma casilla 2 veces
+  colAnterior = -1;//para evitar que se tome como pareja cuando se cliquea la misma casilla 2 veces
 
   listaElegidos = new Array<number>();
  
@@ -144,8 +144,8 @@ export class MemotestComponent implements OnInit {
           this.pauseTimer();
           this.ponerEnNegro();
           this.numeroElegido = -1;
-          this.filaActual = -1;
-          this.colActual -1;
+          this.filaAnterior = -1;
+          this.colAnterior -1;
 
           this.time =0 ;
           this.play = false;
@@ -164,12 +164,12 @@ export class MemotestComponent implements OnInit {
     presion(fila: number, columna: number) {
       this.time =0;
 
-      if(this.posiciones[fila][columna] == this.numeroElegido && fila != this.filaActual && columna != this.colActual) {
+      if(this.posiciones[fila][columna] == this.numeroElegido && fila != this.filaAnterior && columna != this.colAnterior) {
         //this.estadoBotones[fila][columna] = "white";
         this.listaElegidos.push(this.posiciones[fila][columna] ) ;
         this.numeroElegido = -1;
-        this.filaActual = -1;
-        this.colActual = -1;
+        this.filaAnterior = -1;
+        this.colAnterior = -1;
         this.puntos+=10;
       }
       else{
@@ -177,12 +177,16 @@ export class MemotestComponent implements OnInit {
             this.puntos--;
         }
       }
+
+      this.filaAnterior = fila;
+      this.colAnterior = columna;
+      
       
       if(this.contadorMostrados > 0) {
         this.estadoBotones[fila][columna] = "white";
         this.numeroElegido = this.posiciones[fila][columna];
-        this.filaActual = fila;
-        this.colActual = columna;
+       // this.filaAnterior = fila;
+       // this.colAnterior = columna;
 
         console.log("Numero Elegido: " + this.numeroElegido);
       }
