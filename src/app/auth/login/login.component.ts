@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
    
   harcodearUsuarioValido() {
     this.form = new FormGroup({
-      email: new FormControl('nachomonllorc@gmail.com', Validators.required),
-      password: new FormControl('1\'ahigher', Validators.required),
+      email: new FormControl('octavio@gmail.com', Validators.required),
+      password: new FormControl('123456', Validators.required),
     });
   }
 
