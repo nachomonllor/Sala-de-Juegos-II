@@ -141,6 +141,7 @@ export class MemotestComponent implements OnInit {
           this.time =0 ;
           this.play = false;
           this.contadorMostrados = 2;
+          this.numeroElegido = -1;
       }
       },200)
     }
