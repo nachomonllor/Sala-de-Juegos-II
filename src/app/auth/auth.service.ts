@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import * as firebase from 'firebase';
+import { FirebaseAuth } from 'angularfire2';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,12 +33,27 @@ export class AuthService {
     });
   }
   logout() {
+    debugger
     return this.afAuth.auth.signOut();
   }
+  // isAuth() {
+  //   return this.afAuth.authState
+  //     .pipe(
+  //       map(fbUser => fbUser != null)
+  //     );
+  // }
+
   isAuth() {
     return this.afAuth.authState
       .pipe(
-        map(fbUser => fbUser != null)
+        map(fbUser => {
+          if (fbUser) {
+            return true;
+          }
+          this.router.navigate(['/login']);
+          return false;
+        })
       );
   }
+
 }

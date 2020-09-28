@@ -11,12 +11,13 @@ import { AuthGuard } from '../services/auth.guard';
 import { AgilidadAritmeticaComponent } from './agilidad-aritmetica/agilidad-aritmetica.component';
 import { ListadoComponent } from './listado/listado.component';
 import { UserListComponent } from '../pages/users/user-list/user-list.component';
+import { LoginGuard } from '../services/login.guard';
 
 
 const routes: Routes = [
   {
     path: 'dashboard',
-    canActivate: [ AuthGuard ],
+    canActivate: [LoginGuard],
     component: DashboardComponent
   },
   {
@@ -55,7 +56,11 @@ const routes: Routes = [
     path: 'quiensoy',
     component: QuienSoyComponent
   },
-  { path: '', pathMatch: 'full', redirectTo: 'dashboard' }
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
+  }
   // { path: 'users' component: UserListComponent}
 ];
 

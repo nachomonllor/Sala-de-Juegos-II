@@ -23,16 +23,16 @@ export class LoginComponent implements OnInit {
     this.recoverForm();
   }
   createForms() {
-    /*this.form = new FormGroup({
+    this.form = new FormGroup({
       email: new FormControl('idevkingos@gmail.com', Validators.required),
       password: new FormControl('123456', Validators.required),
-    });*/
-    this.form = new FormGroup({
-      email: new FormControl('nachomonllorc@gmail.com', Validators.required),
-      password: new FormControl('1\'ahigher', Validators.required),
     });
+    // this.form = new FormGroup({
+    //   email: new FormControl('nachomonllorc@gmail.com', Validators.required),
+    //   password: new FormControl('1\'ahigher', Validators.required),
+    // });
   }
-   
+
   harcodearUsuarioValido() {
     this.form = new FormGroup({
       email: new FormControl('octavio@gmail.com', Validators.required),
