@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 import Swal from 'sweetalert2';
 
 
 import {MemotestService} from './memotest.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-memotest',
@@ -12,8 +17,10 @@ import {MemotestService} from './memotest.service';
 })
 export class MemotestComponent implements OnInit {
 
-  
-  constructor (private router: Router, private _memoService: MemotestService ) 
+  private user: Observable<firebase.User | null >;
+
+
+  constructor (private router: Router, private _memoService: MemotestService)
   {
 
     // clearInterval(this._timer);

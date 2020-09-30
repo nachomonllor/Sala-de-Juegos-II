@@ -1,8 +1,17 @@
+ import { FirebaseAuth } from 'angularfire2';
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { AngularFirestore } from '@angular/fire/firestore';
+
 import { Game } from '../../interfaces/game.interface';
+
+import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,12 +26,20 @@ export class AgilidadAritmeticaService {
   maximo_puntaje: number = 0;
   nivel: number;
   intentos = 0;
+  
+   // firebase:any;
+
+  private user: Observable<firebase.User | null >;
 
   constructor(
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private afAuth: AngularFireAuth
+    
   ) {
     this.cantidadPuntos = 0;
     this.intentos = 0;
+    this.user = this.afAuth.authState;
+
   }
 
   getCalulo() {
@@ -50,17 +67,7 @@ export class AgilidadAritmeticaService {
     }
   }
 
-  /*
-  gameOver() {
-    const game: Game = {
-      nameGame: 'Agilidad Aritmetica',
-      points: this.cantidadPuntos,
-      date: new Date(),
-      player: 'nmonllor'
-    };
-    this.cantidadPuntos = 0;
-    return this.firestore.collection('lista').add({...game});
-  }*/
+  
 
   subirDeNivel() {
     this.limite += 20;
@@ -70,26 +77,25 @@ export class AgilidadAritmeticaService {
       this.maximo_puntaje = this.cantidadPuntos;
     }
   }
-
-  /*
-  saveGame() {
-    const game: Game = {
-      nameGame: 'Agilidad Aritmetica',
-      points: this.cantidadPuntos,
-      date: new Date(),
-      player: 'nmonllor'
-       
-    };
-    return this.firestore.collection('agilidad-aritmetica').add({ ...game });
-  }*/
+ 
   
   saveGame() {
+
+   // var authData = this.firebase.auth().currentUser();
     const partida: Game = {
       nameGame: 'Agilidad Aritmetica',
       points: this.cantidadPuntos,
       date: new Date(),
-      player: 'nmonllor',
+      //player: firebase.auth().currentUser.email.toString() 
+      //player : this.fireAuth.currentUser.email
+     // player: authData,
+     //player : this.firestore.collection('users').doc('id').toString()
+      //player: 'tito',
+      player: firebase.auth().currentUser.email
+
+
     };
+
     return this.firestore.collection('lista').add({...partida});
   }
 
