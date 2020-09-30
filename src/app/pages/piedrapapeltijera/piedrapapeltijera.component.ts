@@ -4,6 +4,14 @@ import { PptService } from './ppt.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase/app';
+import { AuthService } from 'src/app/auth/auth.service';
+
+
 @Component({
   selector: 'app-piedrapapeltijera',
   templateUrl: './piedrapapeltijera.component.html',
@@ -14,6 +22,8 @@ export class PiedrapapeltijeraComponent {
   observador: Observable<any>;
   timer: any;
   subscription: Subscription;
+  private user: Observable<firebase.User | null >;
+
   constructor(private router: Router, public _pptService: PptService) {
     this.ppt = new JuegoPiedraPapelTijera();
     this.setTimer();
